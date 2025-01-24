@@ -1,0 +1,15 @@
+{
+    "name": "MoreScienceRefresh",
+    "version": "0.1.0",
+    "factorio_version": "2.0",
+    "title": "More Science Refresh",
+    "author": "EvilPLa",
+	"homepage": "",
+    "dependencies": [
+      "base >= 2.0.7",
+      "MoreScience",
+      "quality_glassware",
+      "? advanced-chemical-plant"
+    ],
+    "description": "Fresh Visuals for More Science"
+}
