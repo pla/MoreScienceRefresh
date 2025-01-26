@@ -9,6 +9,7 @@ require("__MoreScienceRefresh__/prototypes/arc-furnace")
 require("__MoreScienceRefresh__/prototypes/sand-washer")
 require("__MoreScienceRefresh__/prototypes/assembler")
 require("__MoreScienceRefresh__/prototypes/rocket-control-unit")
+-- require("__MoreScienceRefresh__/prototypes/convector")
 
 require("__MoreScienceRefresh__/prototypes/cleanup")
 

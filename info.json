@@ -8,7 +8,6 @@
     "dependencies": [
       "base >= 2.0.7",
       "MoreScience",
-      "quality_glassware",
       "? advanced-chemical-plant"
     ],
     "description": "Fresh Visuals for More Science"
