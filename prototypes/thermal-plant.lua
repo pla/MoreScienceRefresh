@@ -145,4 +145,43 @@ data:extend { thermalPlant_item, thermalPlant, thermalPlantRecipe }
 
 LSlib.recipe.editIngredient("thermal-plant","electronic-circuit","advanced-circuit")
 
-LSlib.technology.addRecipeUnlock("purification-research", "thermal-plant")
+data:extend({
+  {
+    type = "technology",
+    name = "ms-advanced-fluid",
+    icons = {
+      {
+        icon = "__MoreScienceRefresh__/graphics/thermal-plant/thermal-plant-icon-big.png",
+        icon_size = 640,
+        scale = 0.4
+      }
+    },
+    prerequisites = {
+      "advanced-circuit",
+      "advanced-automation-science-pack",
+    },
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "thermal-plant"
+      },
+    },
+    unit =
+    {
+      count = 150,
+      ingredients = {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        -- {"advanced-automation-science-pack", 1},
+        -- {"electric-power-science-pack", 1},
+        -- {"chemical-science-pack", 1},
+        -- {"production-science-pack", 1},
+      },
+      time = 60
+    },
+  },
+  })
+
+  LSlib.technology.addPrerequisite("chemical-science-pack","ms-advanced-fluid")
+
