@@ -36,3 +36,5 @@ for _,recipe in pairs{
 } do
   LSlib.recipe.editIngredient(recipe,"processing-unit","rocket-control-unit")
 end
+
+LSlib.technology.addRecipeUnlock("rocket","rocket-control-unit")
