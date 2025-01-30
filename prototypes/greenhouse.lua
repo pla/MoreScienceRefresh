@@ -6,6 +6,7 @@
 local greenhouse_item = data.raw["item"]["wood-plantation"]
 greenhouse_item.icon = "__MoreScienceRefresh__/graphics/greenhouse/greenhouse-icon.png"
 greenhouse_item.icon_size = 64
+greenhouse_item.order = "z-c[".. greenhouse_item.name .."]"
 
 -- entity
 local greenhouse = data.raw["assembling-machine"]["wood-plantation"]
@@ -120,6 +121,7 @@ greenhouse.fluid_boxes =
 
 
 LSlib.recipe.addIngredient("organic-tree","water",10,"fluid")
+LSlib.recipe.setSubgroup("wood-plantation","msr-crafting")
 
 local woodPlantation = data.raw["technology"]["wood-plantation"]
 woodPlantation.icons[1] = {

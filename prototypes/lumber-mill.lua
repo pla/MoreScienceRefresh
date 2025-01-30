@@ -6,6 +6,7 @@ lumberMill_item.icon = "__MoreScienceRefresh__/graphics/lumber-mill/lumber-mill-
 lumberMill_item.icon_size = 64
 lumberMill_item.place_result = lumberMill_item.name
 lumberMill_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
+lumberMill_item.order = "z-d[".. lumberMill_item.name .."]"
 
 
 -- move wood creation in its own category for the lumbermill
@@ -138,6 +139,7 @@ local lumberMillRecipe = util.table.deepcopy(data.raw.recipe["wood-plantation"])
 lumberMillRecipe.name = "lumber-mill"
 lumberMillRecipe.enabled = false
 lumberMillRecipe.results = { { type = "item", name = "lumber-mill", amount = 1 } }
+lumberMillRecipe.subgroup = "msr-crafting"
 
 data:extend { lumberMill_item, lumberMill, lumberMillRecipe }
 

@@ -5,6 +5,8 @@ purifier_item.icon = "__MoreScienceRefresh__/graphics/purifier/purifier-icon.png
 purifier_item.icon_size = 64
 purifier_item.place_result = purifier_item.name
 purifier_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
+purifier_item.order = "z-e"
+purifier_item.order = "z-a[".. purifier_item.name .."]"
 
 -- Change crafting category so we can use water purification in this machine
 data:extend{
@@ -24,6 +26,7 @@ purifier.minable.result = purifier.name
 purifier.next_upgrade = nil
 purifier.module_slots = 3
 purifier.forced_symmetry = "horizontal"
+purifier.order = "e"
 
 purifier.effect_receiver = {
   base_effect = {
@@ -117,6 +120,7 @@ local purifierRecipe = util.table.deepcopy(data.raw.recipe["chemical-plant"])
 purifierRecipe.name = "purifier"
 purifierRecipe.enabled = false
 purifierRecipe.results = { { type = "item", name = "purifier", amount = 1 } }
+purifierRecipe.subgroup = "msr-crafting"
 
 data:extend { purifier_item, purifier, purifierRecipe }
 

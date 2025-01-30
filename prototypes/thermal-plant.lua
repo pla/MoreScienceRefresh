@@ -6,6 +6,7 @@ thermalPlant_item.icon = "__MoreScienceRefresh__/graphics/thermal-plant/thermal-
 thermalPlant_item.icon_size = 64
 thermalPlant_item.place_result = thermalPlant_item.name
 thermalPlant_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
+thermalPlant_item.order = "z-b[".. thermalPlant_item.name .."]"
 
 -- entity
 local thermalPlant = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
@@ -135,11 +136,19 @@ thermalPlant.fluid_boxes =
   },
 }
 
+data:extend({
+  {
+    type = "item-subgroup",
+    group = "production",
+    name = "msr-crafting"
+  },
+})
 
 local thermalPlantRecipe = util.table.deepcopy(data.raw.recipe["chemical-plant"])
 thermalPlantRecipe.name = "thermal-plant"
 thermalPlantRecipe.enabled = false
 thermalPlantRecipe.results = { { type = "item", name = "thermal-plant", amount = 1 } }
+thermalPlantRecipe.subgroup = "msr-crafting"
 
 data:extend { thermalPlant_item, thermalPlant, thermalPlantRecipe }
 
@@ -178,7 +187,7 @@ data:extend({
         -- {"chemical-science-pack", 1},
         -- {"production-science-pack", 1},
       },
-      time = 60
+      time = 30
     },
   },
   })

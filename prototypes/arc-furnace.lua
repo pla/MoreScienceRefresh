@@ -6,6 +6,7 @@ arcFurnace_item.icon = "__MoreScienceRefresh__/graphics/arc-furnace/arc-furnace-
 arcFurnace_item.icon_size = 64
 arcFurnace_item.place_result = arcFurnace_item.name
 arcFurnace_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
+arcFurnace_item.order = "z-e[".. arcFurnace_item.name .."]"
 
 -- entity
 local arcFurnace = util.table.deepcopy(data.raw["furnace"]["electric-furnace"])
@@ -119,6 +120,7 @@ arcFurnaceRecipe.results = { { type = "item", name = "arc-furnace", amount = 1 }
 data:extend { arcFurnace_item, arcFurnace, arcFurnaceRecipe }
 
 LSlib.recipe.editIngredient("arc-furnace", "advanced-circuit", "processing-unit")
+LSlib.recipe.setSubgroup("arc-furnace","msr-crafting")
 
 
 data:extend({

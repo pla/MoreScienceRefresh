@@ -5,6 +5,7 @@ chemicalStager_item.icon = "__MoreScienceRefresh__/graphics/chemical-stager/chem
 chemicalStager_item.icon_size = 64
 chemicalStager_item.place_result = chemicalStager_item.name
 chemicalStager_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
+chemicalStager_item.order = "z-f[".. chemicalStager_item.name .."]"
 
 -- entity
 local chemicalStager = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
@@ -130,6 +131,8 @@ chemicalStagerRecipe.results = { { type = "item", name = "chemical-stager", amou
 data:extend { chemicalStager_item, chemicalStager, chemicalStagerRecipe }
 
 LSlib.recipe.editIngredient("chemical-stager","electronic-circuit","processing-unit")
+LSlib.recipe.setSubgroup("chemical-stager","msr-crafting")
+
 
 data:extend({
   {
@@ -168,3 +171,5 @@ data:extend({
 
   LSlib.technology.addPrerequisite("rainbow-science-pack","ms-advanced-chemical")
   LSlib.technology.removeRecipeUnlock("rainbow-science-pack","science-cauldron")
+
+  
