@@ -14,7 +14,7 @@ chemicalStager.icon = "__MoreScienceRefresh__/graphics/chemical-stager/chemical-
 chemicalStager.minable.result = chemicalStager.name
 chemicalStager.next_upgrade = nil
 
-chemicalStager.module_slots = 3
+chemicalStager.module_slots = 4
 
 chemicalStager.effect_receiver = {
   base_effect = {
