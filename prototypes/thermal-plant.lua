@@ -37,7 +37,7 @@ thermalPlant.graphics_set = {
         filename = "__MoreScienceRefresh__/graphics/thermal-plant/thermal-plant-hr-shadow.png",
         priority = "high",
         size = { 900, 500 },
-        shift = { 0, -1 },
+        shift = { 0, -0.5 },
         scale = 0.5,
         line_length = 1,
         repeat_count = 80,
@@ -46,7 +46,7 @@ thermalPlant.graphics_set = {
       },
       {
         size = { 330, 410 },
-        shift = { 0, -1 },
+        shift = { 0, -0.5 },
         scale = 0.5,
         -- line_length = 8,
         frame_count = 80,
@@ -72,7 +72,7 @@ thermalPlant.graphics_set = {
       animation = {
         priority = "high",
         size = { 330, 410 },
-        shift = { 0, -1 },
+        shift = { 0, -0.5 },
         frame_count = 80,
         animation_speed = 0.5,
         scale = 0.5,
@@ -98,15 +98,15 @@ thermalPlant.graphics_set = {
 
 }
 
-thermalPlant.graphics_set.working_visualisations[2].north_position = {1.22,-4}
-thermalPlant.graphics_set.working_visualisations[2].east_position = nil
-thermalPlant.graphics_set.working_visualisations[2].south_position = nil
-thermalPlant.graphics_set.working_visualisations[2].west_position = nil
+thermalPlant.graphics_set.working_visualisations[2].north_position = {1.22,-3.5}
+thermalPlant.graphics_set.working_visualisations[2].east_position = {1.22,-3.5}
+thermalPlant.graphics_set.working_visualisations[2].south_position = {1.22,-3.5}
+thermalPlant.graphics_set.working_visualisations[2].west_position = {1.22,-3.5}
 
-thermalPlant.graphics_set.working_visualisations[3].north_position = {1.22,-4}
-thermalPlant.graphics_set.working_visualisations[3].east_position = nil
-thermalPlant.graphics_set.working_visualisations[3].south_position = nil
-thermalPlant.graphics_set.working_visualisations[3].west_position = nil
+thermalPlant.graphics_set.working_visualisations[3].north_position = {1.22,-3.5}
+thermalPlant.graphics_set.working_visualisations[3].east_position = {1.22,-3.5}
+thermalPlant.graphics_set.working_visualisations[3].south_position = {1.22,-3.5}
+thermalPlant.graphics_set.working_visualisations[3].west_position = {1.22,-3.5}
 
 thermalPlant.fluid_boxes =
 {

@@ -35,7 +35,7 @@ chemicalStager.graphics_set = {
         filename = "__MoreScienceRefresh__/graphics/chemical-stager/chemical-stager-hr-shadow.png",
         priority = "high",
         size = { 800, 600 },
-        shift = { 0, 0 },
+        shift = { 0, -0.3 },
         scale = 0.5,
         line_length = 1,
         repeat_count = 60,
@@ -45,7 +45,7 @@ chemicalStager.graphics_set = {
       {
         filename = "__MoreScienceRefresh__/graphics/chemical-stager/chemical-stager-hr-animation-1.png",
         size = { 400, 400 },
-        shift = { 0, 0 },
+        shift = { 0, -0.3 },
         scale = 0.5,
         line_length = 8,
         frame_count = 60,
@@ -61,7 +61,7 @@ chemicalStager.graphics_set = {
         filename = "__MoreScienceRefresh__/graphics/chemical-stager/chemical-stager-hr-emission-1.png",
         priority = "high",
         size = { 400, 400 },
-        shift = { 0, 0 },
+        shift = { 0, -0.3 },
         line_length = 8,
         frame_count = 60,
         animation_speed = 0.5,
@@ -70,21 +70,10 @@ chemicalStager.graphics_set = {
         blend_mode = "additive",
       },
     },
-    -- chemWorkVis[3],
-    -- chemWorkVis[4],
   },
 
 }
 
--- myChemPlant.graphics_set.working_visualisations[2].north_position = {1.22,-4}
--- myChemPlant.graphics_set.working_visualisations[2].east_position = nil
--- myChemPlant.graphics_set.working_visualisations[2].south_position = nil
--- myChemPlant.graphics_set.working_visualisations[2].west_position = nil
-
--- myChemPlant.graphics_set.working_visualisations[3].north_position = {1.22,-4}
--- myChemPlant.graphics_set.working_visualisations[3].east_position = nil
--- myChemPlant.graphics_set.working_visualisations[3].south_position = nil
--- myChemPlant.graphics_set.working_visualisations[3].west_position = nil
 
 chemicalStager.fluid_boxes =
 {

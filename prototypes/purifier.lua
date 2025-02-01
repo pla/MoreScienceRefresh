@@ -46,7 +46,7 @@ purifier.graphics_set = {
         filename = "__MoreScienceRefresh__/graphics/purifier/purifier-hr-shadow.png",
         priority = "high",
         size = { 600, 400 },
-        shift = { 0, -1 },
+        shift = { 0, -0.5 },
         scale = 0.5,
         line_length = 1,
         repeat_count = 60,
@@ -56,7 +56,7 @@ purifier.graphics_set = {
       {
         filename = "__MoreScienceRefresh__/graphics/purifier/purifier-hr-animation.png",
         size = { 320, 370 },
-        shift = { 0, -1 },
+        shift = { 0, -0.5 },
         scale = 0.5,
         line_length = 8,
         frame_count = 60,
