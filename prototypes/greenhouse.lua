@@ -13,12 +13,13 @@ local greenhouse = data.raw["assembling-machine"]["wood-plantation"]
 greenhouse.icon = "__MoreScienceRefresh__/graphics/greenhouse/greenhouse-icon.png"
 greenhouse.next_upgrade = nil
 greenhouse.forced_symmetry = "horizontal"
+greenhouse.allowed_effects = {"consumption", "pollution"}
+
 
 -- consume pollution
 greenhouse.effect_receiver = {
   base_effect = {
-    -- consumption = 0.30,
-    pollution = -1.50
+    pollution = -0.8
   }
 }
 
