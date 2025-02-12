@@ -159,6 +159,8 @@ data:extend({
   })
 
   LSlib.technology.addPrerequisite("rainbow-science-pack","ms-advanced-chemical")
+  LSlib.technology.changeIcon("rainbow-science-pack","__MoreScienceRefresh__/graphics/science-mixing.png",256)
   LSlib.technology.removeRecipeUnlock("rainbow-science-pack","science-cauldron")
+  data.raw.recipe["science-cauldron"].hidden = true
 
   
