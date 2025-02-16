@@ -147,12 +147,15 @@ data:extend({
 local thermalPlantRecipe = util.table.deepcopy(data.raw.recipe["chemical-plant"])
 thermalPlantRecipe.name = "thermal-plant"
 thermalPlantRecipe.enabled = false
+thermalPlantRecipe.ingredients = {
+  {type = "item", name = "chemical-plant", amount = 1},
+  {type = "item", name = "advanced-circuit", amount = 5},
+  {type = "item", name = "iron-plate", amount = 5}
+}
 thermalPlantRecipe.results = { { type = "item", name = "thermal-plant", amount = 1 } }
 thermalPlantRecipe.subgroup = "msr-crafting"
 
 data:extend { thermalPlant_item, thermalPlant, thermalPlantRecipe }
-
-LSlib.recipe.editIngredient("thermal-plant","electronic-circuit","advanced-circuit")
 
 data:extend({
   {

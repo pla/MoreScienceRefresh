@@ -115,6 +115,11 @@ chemicalStager.fluid_boxes =
 local chemicalStagerRecipe = util.table.deepcopy(data.raw.recipe["chemical-plant"])
 chemicalStagerRecipe.name = "chemical-stager"
 chemicalStagerRecipe.enabled = false
+chemicalStagerRecipe.ingredients = {
+  {type = "item", name = "chemical-plant", amount = 1},
+  {type = "item", name = "processing-unit", amount = 5},
+  {type = "item", name = "steel-plate", amount = 5}
+}
 chemicalStagerRecipe.results = { { type = "item", name = "chemical-stager", amount = 1 } }
 
 data:extend { chemicalStager_item, chemicalStager, chemicalStagerRecipe }
