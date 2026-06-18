@@ -102,7 +102,7 @@ purifier.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "output", direction = defines.direction.north--[[@as data.Direction]], position = { 1.5, -1.5 } } },
+    pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 1.5, -1.5 } } },
     secondary_draw_orders = { north = -1 }
   },
   {
@@ -110,7 +110,7 @@ purifier.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "input", direction = defines.direction.south--[[@as data.Direction]], position = { -1.5, 1.5 } } },
+    pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -1.5, 1.5 } } },
     secondary_draw_orders = { north = -1 }
   },
 }

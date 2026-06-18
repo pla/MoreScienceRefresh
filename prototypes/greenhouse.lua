@@ -107,7 +107,7 @@ greenhouse.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "input", direction = defines.direction.south--[[@as data.Direction]], position = { -2, 2 } } },
+    pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -2, 2 } } },
     secondary_draw_orders = { north = -1 }
   },
   -- {
