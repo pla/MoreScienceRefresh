@@ -1,4 +1,3 @@
-
 -- item
 local assembler_item = data.raw["item"]["rocket-assembling-machine"]
 assembler_item.icon = "__MoreScienceRefresh__/graphics/Refresh/assembler/assembler-icon.png"
@@ -14,7 +13,7 @@ assembler.effect_receiver = {
   base_effect = {
     productivity = 0.10,
     consumption = 0.30,
-  }
+  },
 }
 
 assembler.collision_box = { { -2.3, -2.3 }, { 2.3, 2.3 } }
@@ -83,7 +82,6 @@ assembler.graphics_set = {
       },
     },
   },
-
 }
 
 -- assembler.fluid_boxes =
@@ -93,7 +91,7 @@ assembler.graphics_set = {
 --     pipe_picture = assembler2pipepictures(),
 --     pipe_covers = pipecoverspictures(),
 --     volume = 100,
---     pipe_connections = { { flow_direction = "input", direction = defines.direction.north --[[@as data.Direction]], position = { 2, -2 } } },
+--     pipe_connections = { { flow_direction = "input", direction = defines.direction.north , position = { 2, -2 } } },
 --     secondary_draw_orders = { north = -1 }
 --   },
 --   {
@@ -101,25 +99,25 @@ assembler.graphics_set = {
 --     pipe_picture = assembler2pipepictures(),
 --     pipe_covers = pipecoverspictures(),
 --     volume = 100,
---     pipe_connections = { { flow_direction = "input", direction = defines.direction.south--[[@as data.Direction]], position = { 0, 2 } } },
+--     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 0, 2 } } },
 --     secondary_draw_orders = { north = -1 }
 --   },
-  -- {
-  --   production_type = "input",
-  --   pipe_picture = assembler2pipepictures(),
-  --   pipe_covers = pipecoverspictures(),
-  --   volume = 100,
-  --   pipe_connections = { { flow_direction = "input", direction = defines.direction.south--[[@as data.Direction]], position = { 2, 2 } } },
-  --   secondary_draw_orders = { north = -1 }
-  -- },
+-- {
+--   production_type = "input",
+--   pipe_picture = assembler2pipepictures(),
+--   pipe_covers = pipecoverspictures(),
+--   volume = 100,
+--   pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 2, 2 } } },
+--   secondary_draw_orders = { north = -1 }
+-- },
 -- }
 
 -- adjust recipes to work in assembler
-LSlib.recipe.setCraftingCategory("rocketpart-payload-mk1-rainbow-science-pack","ms-rocket-crafting")
-LSlib.recipe.setSubgroup("rocketpart-payload-mk1-rainbow-science-pack","ms-science-rocket-parts")
+LSlib.recipe.setCraftingCategory("rocketpart-payload-mk1-rainbow-science-pack", "ms-rocket-crafting")
+LSlib.recipe.setSubgroup("rocketpart-payload-mk1-rainbow-science-pack", "ms-science-rocket-parts")
 
-LSlib.recipe.setCraftingCategory("rocketpart-payload-mk1-empty-bottle","ms-rocket-crafting")
-LSlib.recipe.setSubgroup("rocketpart-payload-mk1-empty-bottle","ms-science-rocket-parts")
+LSlib.recipe.setCraftingCategory("rocketpart-payload-mk1-empty-bottle", "ms-rocket-crafting")
+LSlib.recipe.setSubgroup("rocketpart-payload-mk1-empty-bottle", "ms-science-rocket-parts")
 
-LSlib.recipe.setCraftingCategory("satellite","ms-rocket-crafting")
-LSlib.recipe.setSubgroup("satellite","ms-science-rocket-parts")
+LSlib.recipe.setCraftingCategory("satellite", "ms-rocket-crafting")
+LSlib.recipe.setSubgroup("satellite", "ms-science-rocket-parts")

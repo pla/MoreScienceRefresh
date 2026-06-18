@@ -6,15 +6,15 @@ purifier_item.icon_size = 64
 purifier_item.place_result = purifier_item.name
 purifier_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
 purifier_item.order = "z-e"
-purifier_item.order = "z-a[".. purifier_item.name .."]"
+purifier_item.order = "z-a[" .. purifier_item.name .. "]"
 
 -- Change crafting category so we can use water purification in this machine
-data:extend{
+data:extend({
   {
     type = "recipe-category",
     name = "ms-water-treatment",
   },
-}
+})
 
 data.raw["recipe"]["purified-water"].category = "ms-water-treatment"
 
@@ -32,7 +32,7 @@ purifier.effect_receiver = {
   base_effect = {
     speed = 0.10,
     consumption = 0.30,
-  }
+  },
 }
 
 purifier.crafting_categories = { "ms-water-treatment" }
@@ -61,7 +61,6 @@ purifier.graphics_set = {
         line_length = 8,
         frame_count = 60,
         animation_speed = 0.5,
-
       },
     },
   },
@@ -82,7 +81,6 @@ purifier.graphics_set = {
   --     },
   --   },
   -- },
-
 }
 
 -- myChemPlant.graphics_set.working_visualisations[2].north_position = {1.22,-4}
@@ -95,26 +93,24 @@ purifier.graphics_set = {
 -- myChemPlant.graphics_set.working_visualisations[3].south_position = nil
 -- myChemPlant.graphics_set.working_visualisations[3].west_position = nil
 
-purifier.fluid_boxes =
-{
+purifier.fluid_boxes = {
   {
     production_type = "output",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "output", direction = defines.direction.north--[[@as data.Direction]], position = { 1.5, -1.5 } } },
-    secondary_draw_orders = { north = -1 }
+    pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 1.5, -1.5 } } },
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "input", direction = defines.direction.south--[[@as data.Direction]], position = { -1.5, 1.5 } } },
-    secondary_draw_orders = { north = -1 }
+    pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -1.5, 1.5 } } },
+    secondary_draw_orders = { north = -1 },
   },
 }
-
 
 local purifierRecipe = util.table.deepcopy(data.raw.recipe["chemical-plant"])
 purifierRecipe.name = "purifier"
@@ -122,6 +118,6 @@ purifierRecipe.enabled = false
 purifierRecipe.results = { { type = "item", name = "purifier", amount = 1 } }
 purifierRecipe.subgroup = "msr-crafting"
 
-data:extend { purifier_item, purifier, purifierRecipe }
+data:extend({ purifier_item, purifier, purifierRecipe })
 
 LSlib.technology.addRecipeUnlock("purification-research", "purifier")

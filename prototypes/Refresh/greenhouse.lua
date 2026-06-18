@@ -6,21 +6,20 @@
 local greenhouse_item = data.raw["item"]["wood-plantation"]
 greenhouse_item.icon = "__MoreScienceRefresh__/graphics/Refresh/greenhouse/greenhouse-icon.png"
 greenhouse_item.icon_size = 64
-greenhouse_item.order = "z-c[".. greenhouse_item.name .."]"
+greenhouse_item.order = "z-c[" .. greenhouse_item.name .. "]"
 
 -- entity
 local greenhouse = data.raw["assembling-machine"]["wood-plantation"]
 greenhouse.icon = "__MoreScienceRefresh__/graphics/Refresh/greenhouse/greenhouse-icon.png"
 greenhouse.next_upgrade = nil
 greenhouse.forced_symmetry = "horizontal"
-greenhouse.allowed_effects = {"consumption", "pollution"}
-
+greenhouse.allowed_effects = { "consumption", "pollution" }
 
 -- consume pollution
 greenhouse.effect_receiver = {
   base_effect = {
-    pollution = -0.8
-  }
+    pollution = -0.8,
+  },
 }
 
 greenhouse.collision_box = { { -2.3, -2.3 }, { 2.3, 2.3 } }
@@ -89,17 +88,15 @@ greenhouse.graphics_set = {
       },
     },
   },
-
 }
 
-greenhouse.fluid_boxes =
-{
+greenhouse.fluid_boxes = {
   -- {
   --   production_type = "output",
   --   pipe_picture = assembler2pipepictures(),
   --   pipe_covers = pipecoverspictures(),
   --   volume = 100,
-  --   pipe_connections = { { flow_direction = "output", direction = defines.direction.north --[[@as data.Direction]], position = { 2, -2 } } },
+  --   pipe_connections = { { flow_direction = "output", direction = defines.direction.north , position = { 2, -2 } } },
   --   secondary_draw_orders = { north = -1 }
   -- },
   {
@@ -107,27 +104,26 @@ greenhouse.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "input", direction = defines.direction.south--[[@as data.Direction]], position = { -2, 2 } } },
-    secondary_draw_orders = { north = -1 }
+    pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -2, 2 } } },
+    secondary_draw_orders = { north = -1 },
   },
   -- {
   --   production_type = "input",
   --   pipe_picture = assembler2pipepictures(),
   --   pipe_covers = pipecoverspictures(),
   --   volume = 100,
-  --   pipe_connections = { { flow_direction = "input", direction = defines.direction.south--[[@as data.Direction]], position = { 2, 2 } } },
+  --   pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 2, 2 } } },
   --   secondary_draw_orders = { north = -1 }
   -- },
 }
 
-
-LSlib.recipe.addIngredient("organic-tree","water",10,"fluid")
-LSlib.recipe.setSubgroup("wood-plantation","msr-crafting")
-LSlib.recipe.setSubgroup("seed-extractor","msr-crafting")
+LSlib.recipe.addIngredient("organic-tree", "water", 10, "fluid")
+LSlib.recipe.setSubgroup("wood-plantation", "msr-crafting")
+LSlib.recipe.setSubgroup("seed-extractor", "msr-crafting")
 
 local woodPlantation = data.raw["technology"]["wood-plantation"]
 woodPlantation.icons[1] = {
   icon = "__MoreScienceRefresh__/graphics/Refresh/greenhouse/greenhouse-icon-big.png",
   icon_size = 640,
-  scale = 0.4
+  scale = 0.4,
 }

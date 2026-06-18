@@ -5,7 +5,7 @@ chemicalStager_item.icon = "__MoreScienceRefresh__/graphics/Refresh/chemical-sta
 chemicalStager_item.icon_size = 64
 chemicalStager_item.place_result = chemicalStager_item.name
 chemicalStager_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
-chemicalStager_item.order = "z-f[".. chemicalStager_item.name .."]"
+chemicalStager_item.order = "z-f[" .. chemicalStager_item.name .. "]"
 
 -- entity
 local chemicalStager = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
@@ -20,11 +20,11 @@ chemicalStager.effect_receiver = {
   base_effect = {
     productivity = 0.10,
     consumption = 0.30,
-    pollution = 0.50
-  }
+    pollution = 0.50,
+  },
 }
 
-chemicalStager.crafting_categories = { "ms-chemical-crafting","ms-science-cauldron" }
+chemicalStager.crafting_categories = { "ms-chemical-crafting", "ms-science-cauldron" }
 chemicalStager.collision_box = { { -2.8, -2.8 }, { 2.8, 2.8 } }
 chemicalStager.selection_box = { { -3, -3 }, { 3, 3 } }
 
@@ -50,7 +50,6 @@ chemicalStager.graphics_set = {
         line_length = 8,
         frame_count = 60,
         animation_speed = 0.5,
-
       },
     },
   },
@@ -71,62 +70,57 @@ chemicalStager.graphics_set = {
       },
     },
   },
-
 }
 
-
-chemicalStager.fluid_boxes =
-{
+chemicalStager.fluid_boxes = {
   {
     production_type = "output",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "output", direction = defines.direction.north--[[@as data.Direction]], position = { 1.5, -2.5 } } },
-    secondary_draw_orders = { north = -1 }
+    pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 1.5, -2.5 } } },
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "input", direction = defines.direction.north--[[@as data.Direction]], position = { -1.5, -2.5 } } },
-    secondary_draw_orders = { north = -1 }
+    pipe_connections = { { flow_direction = "input", direction = defines.direction.north, position = { -1.5, -2.5 } } },
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "input", direction = defines.direction.south--[[@as data.Direction]], position = { -1.5, 2.5 } } },
-    secondary_draw_orders = { north = -1 }
+    pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -1.5, 2.5 } } },
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 100,
-    pipe_connections = { { flow_direction = "input", direction = defines.direction.south--[[@as data.Direction]], position = { 1.5, 2.5 } } },
-    secondary_draw_orders = { north = -1 }
+    pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 1.5, 2.5 } } },
+    secondary_draw_orders = { north = -1 },
   },
 }
-
 
 local chemicalStagerRecipe = util.table.deepcopy(data.raw.recipe["chemical-plant"])
 chemicalStagerRecipe.name = "chemical-stager"
 chemicalStagerRecipe.enabled = false
 chemicalStagerRecipe.ingredients = {
-  {type = "item", name = "chemical-plant", amount = 1},
-  {type = "item", name = "processing-unit", amount = 5},
-  {type = "item", name = "steel-plate", amount = 5}
+  { type = "item", name = "chemical-plant", amount = 1 },
+  { type = "item", name = "processing-unit", amount = 5 },
+  { type = "item", name = "steel-plate", amount = 5 },
 }
 chemicalStagerRecipe.results = { { type = "item", name = "chemical-stager", amount = 1 } }
 
-data:extend { chemicalStager_item, chemicalStager, chemicalStagerRecipe }
+data:extend({ chemicalStager_item, chemicalStager, chemicalStagerRecipe })
 
-LSlib.recipe.editIngredient("chemical-stager","electronic-circuit","processing-unit")
-LSlib.recipe.setSubgroup("chemical-stager","msr-crafting")
-
+LSlib.recipe.editIngredient("chemical-stager", "electronic-circuit", "processing-unit")
+LSlib.recipe.setSubgroup("chemical-stager", "msr-crafting")
 
 data:extend({
   {
@@ -136,36 +130,32 @@ data:extend({
       {
         icon = "__MoreScienceRefresh__/graphics/Refresh/chemical-stager/chemical-stager-icon-big.png",
         icon_size = 320,
-        scale = 0.8
-      }
+        scale = 0.8,
+      },
     },
-    prerequisites = {"efficiency-module-3",},
-    effects =
-    {
+    prerequisites = { "efficiency-module-3" },
+    effects = {
       {
         type = "unlock-recipe",
-        recipe = "chemical-stager"
+        recipe = "chemical-stager",
       },
     },
-    unit =
-    {
+    unit = {
       count = 300,
       ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"advanced-automation-science-pack", 1},
-        {"electric-power-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "advanced-automation-science-pack", 1 },
+        { "electric-power-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
       },
-      time = 60
+      time = 60,
     },
   },
-  })
+})
 
-  LSlib.technology.addPrerequisite("rainbow-science-pack","ms-advanced-chemical")
-  LSlib.technology.changeIcon("rainbow-science-pack","__MoreScienceRefresh__/graphics/science-mixing.png",256)
-  LSlib.technology.removeRecipeUnlock("rainbow-science-pack","science-cauldron")
-  data.raw.recipe["science-cauldron"].hidden = true
-
-  
+LSlib.technology.addPrerequisite("rainbow-science-pack", "ms-advanced-chemical")
+LSlib.technology.changeIcon("rainbow-science-pack", "__MoreScienceRefresh__/graphics/science-mixing.png", 256)
+LSlib.technology.removeRecipeUnlock("rainbow-science-pack", "science-cauldron")
+data.raw.recipe["science-cauldron"].hidden = true
