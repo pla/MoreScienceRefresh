@@ -24,6 +24,7 @@ lumberMill.name = "lumber-mill"
 lumberMill.icon = "__MoreScienceRefresh__/graphics/Refresh/lumber-mill/lumber-mill-icon.png"
 lumberMill.minable.result = lumberMill.name
 lumberMill.next_upgrade = nil
+lumberMill.fast_replaceable_group = ""
 lumberMill.module_slots = 4
 lumberMill.crafting_speed = 1
 
