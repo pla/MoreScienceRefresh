@@ -11,6 +11,7 @@ greenhouse_item.order = "z-c[" .. greenhouse_item.name .. "]"
 -- entity
 local greenhouse = data.raw["assembling-machine"]["wood-plantation"]
 greenhouse.icon = "__MoreScienceRefresh__/graphics/Refresh/greenhouse/greenhouse-icon.png"
+greenhouse.icons = nil
 greenhouse.next_upgrade = nil
 greenhouse.forced_symmetry = "horizontal"
 greenhouse.allowed_effects = { "consumption", "pollution" }

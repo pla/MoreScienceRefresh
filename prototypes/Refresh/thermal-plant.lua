@@ -12,6 +12,7 @@ thermalPlant_item.order = "z-b[".. thermalPlant_item.name .."]"
 local thermalPlant = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
 thermalPlant.name = "thermal-plant"
 thermalPlant.icon = "__MoreScienceRefresh__/graphics/Refresh/thermal-plant/thermal-plant-icon.png"
+thermalPlant.icons = nil
 thermalPlant.minable.result = thermalPlant.name
 thermalPlant.next_upgrade = nil
 thermalPlant.forced_symmetry = "horizontal"

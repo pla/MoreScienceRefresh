@@ -12,6 +12,7 @@ arcFurnace_item.order = "z-e[".. arcFurnace_item.name .."]"
 local arcFurnace = util.table.deepcopy(data.raw["furnace"]["electric-furnace"])
 arcFurnace.name = "arc-furnace"
 arcFurnace.icon = "__MoreScienceRefresh__/graphics/Refresh/arc-furnace/arc-furnace-icon.png"
+arcFurnace.icons = nil
 arcFurnace.minable.result = arcFurnace.name
 arcFurnace.next_upgrade = nil
 

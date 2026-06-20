@@ -18,6 +18,7 @@ data:extend {
 local convector = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
 convector.name = "convector"
 convector.icon = "__MoreScienceRefresh__/graphics/Refresh/convector/convector-icon.png"
+convector.icons = nil
 convector.minable.result = convector.name
 convector.next_upgrade = nil
 convector.forced_symmetry = "horizontal"

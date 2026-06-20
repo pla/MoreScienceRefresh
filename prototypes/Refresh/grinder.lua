@@ -12,6 +12,7 @@ grinder_item.order = "z-b[".. grinder_item.name .."]"
 local grinder = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
 grinder.name = "grinder"
 grinder.icon = "__MoreScienceRefresh__/graphics/Refresh/grinder/grinder-icon.png"
+grinder.icons = nil
 grinder.minable.result = grinder.name
 grinder.next_upgrade = nil
 grinder.forced_symmetry = "horizontal"

@@ -22,6 +22,7 @@ LSlib.recipe.setCraftingCategory("wood-creator","ms-lumber-mill")
 local lumberMill = util.table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"])
 lumberMill.name = "lumber-mill"
 lumberMill.icon = "__MoreScienceRefresh__/graphics/Refresh/lumber-mill/lumber-mill-icon.png"
+lumberMill.icons = nil
 lumberMill.minable.result = lumberMill.name
 lumberMill.next_upgrade = nil
 lumberMill.fast_replaceable_group = ""

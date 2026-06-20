@@ -22,6 +22,7 @@ data.raw["recipe"]["purified-water"].category = "ms-water-treatment"
 local purifier = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
 purifier.name = "purifier"
 purifier.icon = "__MoreScienceRefresh__/graphics/Refresh/purifier/purifier-icon.png"
+purifier.icons = nil
 purifier.minable.result = purifier.name
 purifier.next_upgrade = nil
 purifier.module_slots = 3

@@ -11,6 +11,7 @@ chemicalStager_item.order = "z-f[" .. chemicalStager_item.name .. "]"
 local chemicalStager = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
 chemicalStager.name = "chemical-stager"
 chemicalStager.icon = "__MoreScienceRefresh__/graphics/Refresh/chemical-stager/chemical-stager-icon.png"
+chemicalStager.icons = nil
 chemicalStager.minable.result = chemicalStager.name
 chemicalStager.next_upgrade = nil
 

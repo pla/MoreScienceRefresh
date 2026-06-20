@@ -6,6 +6,7 @@ assembler_item.icon_size = 64
 -- entity
 local assembler = data.raw["assembling-machine"]["rocket-assembling-machine"]
 assembler.icon = "__MoreScienceRefresh__/graphics/Refresh/assembler/assembler-icon.png"
+assembler.icons = nil
 assembler.next_upgrade = nil
 -- assembler.forced_symmetry = "horizontal"
 
