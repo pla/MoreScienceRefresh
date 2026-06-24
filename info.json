@@ -1,15 +1,16 @@
 {
     "name": "MoreScienceRefresh",
-    "version": "0.2.0",
-    "factorio_version": "2.0",
+    "version": "0.3.0",
+    "factorio_version": "2.1",
     "title": "More Science Refresh",
     "author": "EvilPLa",
 	"homepage": "",
     "dependencies": [
-      "base >= 2.0.7",
-      "LSlib_James_Fork",
+      "base >= 2.1.7",
+      "LSlib",
+      "? LSlib_James_Fork",
       "! MoreScience",
       "(?) advanced-chemical-plant"
     ],
-    "description": "Changes the science pack recipes, take it to the next level. Just so it isn't always the same boring vanilla recipes... Now with new visuals"
+    "description": "More Science by Lovely Santa but with fresh visuals from [Hurricane064](https://mods.factorio.com/user/Hurricane046)"
 }
