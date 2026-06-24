@@ -14,7 +14,7 @@ if settings.startup["MS-allow-empty-barrel-recycling"].value == true then
   barrelRecycling.energy_required = 16
   barrelRecycling.ingredients = util.table.deepcopy(barrelRecycling.results)
 
-  barrelRecycling.results = { { type = "item", name = "steel-plate", amount = 1, probability = 0.8 } }
+  barrelRecycling.results = { { type = "item", name = "steel-plate", amount = 1, independent_probability = 0.8 } }
   barrelRecycling.allow_as_intermediate = false
 
   data:extend({ barrelRecycling })

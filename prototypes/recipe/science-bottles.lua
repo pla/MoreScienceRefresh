@@ -62,7 +62,7 @@ data:extend({
     },
     results = {
       { type = "fluid", name = "purified-water", amount = 10 },
-      { type = "item", name = "sand", amount = 1, probability = 0.5 },
+      { type = "item", name = "sand", amount = 1, independent_probability = 0.5 },
     },
     main_product = "purified-water",
     crafting_machine_tint = {
