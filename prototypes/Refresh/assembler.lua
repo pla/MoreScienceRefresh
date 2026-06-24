@@ -1,3 +1,4 @@
+local assembler_pictures = require("__base__.prototypes.entity.assembler-pictures")
 -- item
 local assembler_item = data.raw["item"]["rocket-assembling-machine"]
 assembler_item.icon = "__MoreScienceRefresh__/graphics/Refresh/assembler/assembler-icon.png"
@@ -89,7 +90,7 @@ assembler.graphics_set = {
 -- {
 --   {
 --     production_type = "input",
---     pipe_picture = assembler2pipepictures(),
+--     pipe_picture = assembler_pictures.assembler2pipepictures,
 --     pipe_covers = pipecoverspictures(),
 --     volume = 100,
 --     pipe_connections = { { flow_direction = "input", direction = defines.direction.north , position = { 2, -2 } } },
@@ -97,7 +98,7 @@ assembler.graphics_set = {
 --   },
 --   {
 --     production_type = "input",
---     pipe_picture = assembler2pipepictures(),
+--     pipe_picture = assembler_pictures.assembler2pipepictures,
 --     pipe_covers = pipecoverspictures(),
 --     volume = 100,
 --     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 0, 2 } } },
@@ -105,7 +106,7 @@ assembler.graphics_set = {
 --   },
 -- {
 --   production_type = "input",
---   pipe_picture = assembler2pipepictures(),
+--   pipe_picture = assembler_pictures.assembler2pipepictures,
 --   pipe_covers = pipecoverspictures(),
 --   volume = 100,
 --   pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 2, 2 } } },

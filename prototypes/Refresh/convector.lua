@@ -1,4 +1,5 @@
 ---@diagnostic disable: assign-type-mismatch
+local assembler_pictures = require("__base__.prototypes.entity.assembler-pictures")
 -- item
 local convector_item = util.table.deepcopy(data.raw["item"]["pumpjack"])
 convector_item.name = "convector"
@@ -7,12 +8,12 @@ convector_item.icon_size = 64
 convector_item.place_result = convector_item.name
 convector_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
 
-data:extend {
+data:extend({
   {
     type = "recipe-category",
     name = "msr-bottle-crafting",
-  }
-}
+  },
+})
 
 -- entity
 local convector = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
@@ -27,8 +28,8 @@ convector.effect_receiver = {
   base_effect = {
     speed = 0.20,
     consumption = 0.30,
-    pollution = 0.50
-  }
+    pollution = 0.50,
+  },
 }
 
 convector.crafting_categories = { "msr-bottle-crafting" }
@@ -98,44 +99,41 @@ convector.graphics_set = {
       },
     },
   },
-
 }
 
-convector.fluid_boxes =
-{
+convector.fluid_boxes = {
   {
     production_type = "output",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 2, -2 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -2, 2 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 2, 2 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
 }
-
 
 local thermalPlantRecipe = util.table.deepcopy(data.raw.recipe["chemical-plant"])
 thermalPlantRecipe.name = "convector"
 thermalPlantRecipe.enabled = false
 thermalPlantRecipe.results = { { type = "item", name = "convector", amount = 1 } }
 
-data:extend { convector_item, convector, thermalPlantRecipe }
+data:extend({ convector_item, convector, thermalPlantRecipe })
 
 -- LSlib.recipe.editIngredient("convector","electronic-circuit","advanced-circuit")
 

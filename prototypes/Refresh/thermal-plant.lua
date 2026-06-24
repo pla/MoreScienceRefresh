@@ -1,4 +1,5 @@
 ---@diagnostic disable: assign-type-mismatch
+local assembler_pictures = require("__base__.prototypes.entity.assembler-pictures")
 -- item
 local thermalPlant_item = util.table.deepcopy(data.raw["item"]["pumpjack"])
 thermalPlant_item.name = "thermal-plant"
@@ -6,7 +7,7 @@ thermalPlant_item.icon = "__MoreScienceRefresh__/graphics/Refresh/thermal-plant/
 thermalPlant_item.icon_size = 64
 thermalPlant_item.place_result = thermalPlant_item.name
 thermalPlant_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
-thermalPlant_item.order = "z-b[".. thermalPlant_item.name .."]"
+thermalPlant_item.order = "z-b[" .. thermalPlant_item.name .. "]"
 
 -- entity
 local thermalPlant = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
@@ -21,8 +22,8 @@ thermalPlant.effect_receiver = {
   base_effect = {
     speed = 0.20,
     consumption = 0.30,
-    pollution = 0.50
-  }
+    pollution = 0.50,
+  },
 }
 
 thermalPlant.crafting_categories = { "ms-chemical-crafting" }
@@ -30,7 +31,8 @@ thermalPlant.collision_box = { { -2.3, -2.3 }, { 2.3, 2.3 } }
 thermalPlant.selection_box = { { -2.5, -2.5 }, { 2.5, 2.5 } }
 
 ---@type data.WorkingVisualisations for smoke
-local chemWorkVis = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"].graphics_set.working_visualisations)
+local chemWorkVis =
+  util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"].graphics_set.working_visualisations)
 thermalPlant.graphics_set = {
   animation = {
     layers = {
@@ -96,44 +98,42 @@ thermalPlant.graphics_set = {
     chemWorkVis[3],
     chemWorkVis[4],
   },
-
 }
 
-thermalPlant.graphics_set.working_visualisations[2].north_position = {1.22,-3.5}
-thermalPlant.graphics_set.working_visualisations[2].east_position = {1.22,-3.5}
-thermalPlant.graphics_set.working_visualisations[2].south_position = {1.22,-3.5}
-thermalPlant.graphics_set.working_visualisations[2].west_position = {1.22,-3.5}
+thermalPlant.graphics_set.working_visualisations[2].north_position = { 1.22, -3.5 }
+thermalPlant.graphics_set.working_visualisations[2].east_position = { 1.22, -3.5 }
+thermalPlant.graphics_set.working_visualisations[2].south_position = { 1.22, -3.5 }
+thermalPlant.graphics_set.working_visualisations[2].west_position = { 1.22, -3.5 }
 
-thermalPlant.graphics_set.working_visualisations[3].north_position = {1.22,-3.5}
-thermalPlant.graphics_set.working_visualisations[3].east_position = {1.22,-3.5}
-thermalPlant.graphics_set.working_visualisations[3].south_position = {1.22,-3.5}
-thermalPlant.graphics_set.working_visualisations[3].west_position = {1.22,-3.5}
+thermalPlant.graphics_set.working_visualisations[3].north_position = { 1.22, -3.5 }
+thermalPlant.graphics_set.working_visualisations[3].east_position = { 1.22, -3.5 }
+thermalPlant.graphics_set.working_visualisations[3].south_position = { 1.22, -3.5 }
+thermalPlant.graphics_set.working_visualisations[3].west_position = { 1.22, -3.5 }
 
-thermalPlant.fluid_boxes =
-{
+thermalPlant.fluid_boxes = {
   {
     production_type = "output",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 2, -2 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -2, 2 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 2, 2 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
 }
 
@@ -141,7 +141,7 @@ data:extend({
   {
     type = "item-subgroup",
     group = "production",
-    name = "msr-crafting"
+    name = "msr-crafting",
   },
 })
 
@@ -149,14 +149,14 @@ local thermalPlantRecipe = util.table.deepcopy(data.raw.recipe["chemical-plant"]
 thermalPlantRecipe.name = "thermal-plant"
 thermalPlantRecipe.enabled = false
 thermalPlantRecipe.ingredients = {
-  {type = "item", name = "chemical-plant", amount = 1},
-  {type = "item", name = "advanced-circuit", amount = 5},
-  {type = "item", name = "iron-plate", amount = 5}
+  { type = "item", name = "chemical-plant", amount = 1 },
+  { type = "item", name = "advanced-circuit", amount = 5 },
+  { type = "item", name = "iron-plate", amount = 5 },
 }
 thermalPlantRecipe.results = { { type = "item", name = "thermal-plant", amount = 1 } }
 thermalPlantRecipe.subgroup = "msr-crafting"
 
-data:extend { thermalPlant_item, thermalPlant, thermalPlantRecipe }
+data:extend({ thermalPlant_item, thermalPlant, thermalPlantRecipe })
 
 data:extend({
   {
@@ -166,35 +166,32 @@ data:extend({
       {
         icon = "__MoreScienceRefresh__/graphics/Refresh/thermal-plant/thermal-plant-icon-big.png",
         icon_size = 640,
-        scale = 0.4
-      }
+        scale = 0.4,
+      },
     },
     prerequisites = {
       "advanced-circuit",
       "advanced-automation-science-pack",
     },
-    effects =
-    {
+    effects = {
       {
         type = "unlock-recipe",
-        recipe = "thermal-plant"
+        recipe = "thermal-plant",
       },
     },
-    unit =
-    {
+    unit = {
       count = 150,
       ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"advanced-automation-science-pack", 1},
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "advanced-automation-science-pack", 1 },
         -- {"electric-power-science-pack", 1},
         -- {"chemical-science-pack", 1},
         -- {"production-science-pack", 1},
       },
-      time = 30
+      time = 30,
     },
   },
-  })
+})
 
-  LSlib.technology.addPrerequisite("chemical-science-pack","ms-advanced-fluid")
-
+LSlib.technology.addPrerequisite("chemical-science-pack", "ms-advanced-fluid")

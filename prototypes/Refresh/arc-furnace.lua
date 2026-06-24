@@ -1,12 +1,13 @@
 ----@diagnostic disable: assign-type-mismatch
 -- item
+local assembler_pictures = require("__base__.prototypes.entity.assembler-pictures")
 local arcFurnace_item = util.table.deepcopy(data.raw["item"]["pumpjack"])
 arcFurnace_item.name = "arc-furnace"
 arcFurnace_item.icon = "__MoreScienceRefresh__/graphics/Refresh/arc-furnace/arc-furnace-icon.png"
 arcFurnace_item.icon_size = 64
 arcFurnace_item.place_result = arcFurnace_item.name
 arcFurnace_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
-arcFurnace_item.order = "z-e[".. arcFurnace_item.name .."]"
+arcFurnace_item.order = "z-e[" .. arcFurnace_item.name .. "]"
 
 -- entity
 local arcFurnace = util.table.deepcopy(data.raw["furnace"]["electric-furnace"])
@@ -22,8 +23,8 @@ arcFurnace.effect_receiver = {
   base_effect = {
     productivity = 0.20,
     consumption = 0.30,
-    pollution = 6.0
-  }
+    pollution = 6.0,
+  },
 }
 
 -- arcFurnace.crafting_categories = { "ms-chemical-crafting","ms-science-cauldron" }
@@ -52,7 +53,6 @@ arcFurnace.graphics_set = {
         line_length = 8,
         frame_count = 50,
         animation_speed = 0.5,
-
       },
     },
   },
@@ -73,14 +73,13 @@ arcFurnace.graphics_set = {
       },
     },
   },
-
 }
 
 -- arcFurnace.fluid_boxes =
 -- {
 --   {
 --     production_type = "output",
---     pipe_picture = assembler2pipepictures(),
+--     pipe_picture = assembler_pictures.assembler2pipepictures,
 --     pipe_covers = pipecoverspictures(),
 --     volume = 100,
 --     pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 0, -2 } } },
@@ -88,7 +87,7 @@ arcFurnace.graphics_set = {
 --   },
 --   {
 --     production_type = "input",
---     pipe_picture = assembler2pipepictures(),
+--     pipe_picture = assembler_pictures.assembler2pipepictures,
 --     pipe_covers = pipecoverspictures(),
 --     volume = 100,
 --     pipe_connections = { { flow_direction = "output", direction = defines.direction.east, position = { 2, 0 } } },
@@ -96,7 +95,7 @@ arcFurnace.graphics_set = {
 --   },
 --   {
 --     production_type = "input",
---     pipe_picture = assembler2pipepictures(),
+--     pipe_picture = assembler_pictures.assembler2pipepictures,
 --     pipe_covers = pipecoverspictures(),
 --     volume = 100,
 --     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 0, 2} } },
@@ -104,7 +103,7 @@ arcFurnace.graphics_set = {
 --   },
 --   {
 --     production_type = "input",
---     pipe_picture = assembler2pipepictures(),
+--     pipe_picture = assembler_pictures.assembler2pipepictures,
 --     pipe_covers = pipecoverspictures(),
 --     volume = 100,
 --     pipe_connections = { { flow_direction = "input", direction = defines.direction.west, position = { -2, 0 } } },
@@ -112,50 +111,45 @@ arcFurnace.graphics_set = {
 --   },
 -- }
 
-
 local arcFurnaceRecipe = util.table.deepcopy(data.raw.recipe["electric-furnace"])
 arcFurnaceRecipe.name = "arc-furnace"
 arcFurnaceRecipe.enabled = false
 arcFurnaceRecipe.results = { { type = "item", name = "arc-furnace", amount = 1 } }
 
-data:extend { arcFurnace_item, arcFurnace, arcFurnaceRecipe }
+data:extend({ arcFurnace_item, arcFurnace, arcFurnaceRecipe })
 
 LSlib.recipe.editIngredient("arc-furnace", "advanced-circuit", "processing-unit")
-LSlib.recipe.setSubgroup("arc-furnace","msr-crafting")
-
+LSlib.recipe.setSubgroup("arc-furnace", "msr-crafting")
 
 data:extend({
-{
-  type = "technology",
-  name = "ms-advanced-smelting",
-  icons = {
-    {
-      icon = "__MoreScienceRefresh__/graphics/Refresh/arc-furnace/arc-furnace-icon-big.png",
-      icon_size = 640,
-      scale = 0.4
-    }
-  },
-  prerequisites = {"efficiency-module-3",},
-  effects =
   {
-    {
-      type = "unlock-recipe",
-      recipe = "arc-furnace"
+    type = "technology",
+    name = "ms-advanced-smelting",
+    icons = {
+      {
+        icon = "__MoreScienceRefresh__/graphics/Refresh/arc-furnace/arc-furnace-icon-big.png",
+        icon_size = 640,
+        scale = 0.4,
+      },
+    },
+    prerequisites = { "efficiency-module-3" },
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "arc-furnace",
+      },
+    },
+    unit = {
+      count = 300,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "advanced-automation-science-pack", 1 },
+        { "electric-power-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+      },
+      time = 60,
     },
   },
-  unit =
-  {
-    count = 300,
-    ingredients = {
-      {"automation-science-pack", 1},
-      {"logistic-science-pack", 1},
-      {"advanced-automation-science-pack", 1},
-      {"electric-power-science-pack", 1},
-      {"chemical-science-pack", 1},
-      {"production-science-pack", 1},
-    },
-    time = 60
-  },
-},
 })
-

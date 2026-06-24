@@ -1,4 +1,5 @@
 ---@diagnostic disable: assign-type-mismatch
+local assembler_pictures = require("__base__.prototypes.entity.assembler-pictures")
 -- item
 local grinder_item = util.table.deepcopy(data.raw["item"]["pumpjack"])
 grinder_item.name = "grinder"
@@ -6,7 +7,7 @@ grinder_item.icon = "__MoreScienceRefresh__/graphics/Refresh/grinder/grinder-ico
 grinder_item.icon_size = 64
 grinder_item.place_result = grinder_item.name
 grinder_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
-grinder_item.order = "z-b[".. grinder_item.name .."]"
+grinder_item.order = "z-b[" .. grinder_item.name .. "]"
 
 -- entity
 local grinder = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
@@ -94,7 +95,6 @@ grinder.graphics_set = {
       },
     },
   },
-
 }
 
 -- grinder.graphics_set.working_visualisations[2].north_position = {1.22,-4}
@@ -107,19 +107,18 @@ grinder.graphics_set = {
 -- grinder.graphics_set.working_visualisations[3].south_position = nil
 -- grinder.graphics_set.working_visualisations[3].west_position = nil
 
-grinder.fluid_boxes =
-{
+grinder.fluid_boxes = {
   {
     production_type = "output",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 0, -4 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
   -- {
   --   production_type = "input",
-  --   pipe_picture = assembler2pipepictures(),
+  --   pipe_picture = assembler_pictures.assembler2pipepictures,
   --   pipe_covers = pipecoverspictures(),
   --   volume = 100,
   --   pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -2, 2 } } },
@@ -127,16 +126,15 @@ grinder.fluid_boxes =
   -- },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 0, 4 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
 }
 
 grinder.working_sound = data.raw["mining-drill"]["burner-mining-drill"].working_sound
-
 
 local grinderRecipe = util.table.deepcopy(data.raw.recipe["chemical-plant"])
 grinderRecipe.name = "grinder"
@@ -144,9 +142,9 @@ grinderRecipe.enabled = false
 grinderRecipe.results = { { type = "item", name = "grinder", amount = 1 } }
 grinderRecipe.subgroup = "msr-crafting"
 
-data:extend { grinder_item, grinder, grinderRecipe }
+data:extend({ grinder_item, grinder, grinderRecipe })
 
-LSlib.recipe.editIngredient("grinder","electronic-circuit","processing-unit")
+LSlib.recipe.editIngredient("grinder", "electronic-circuit", "processing-unit")
 
 -- LSlib.technology.addRecipeUnlock("purification-research", "grinder")
 
@@ -158,31 +156,27 @@ data:extend({
       {
         icon = "__MoreScienceRefresh__/graphics/Refresh/grinder/grinder-icon-big.png",
         icon_size = 640,
-        scale = 0.4
-      }
+        scale = 0.4,
+      },
     },
-    prerequisites = {"production-science-pack",},
-    effects =
-    {
+    prerequisites = { "production-science-pack" },
+    effects = {
       {
         type = "unlock-recipe",
-        recipe = "grinder"
+        recipe = "grinder",
       },
     },
-    unit =
-    {
+    unit = {
       count = 150,
       ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"advanced-automation-science-pack", 1},
-        {"electric-power-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "advanced-automation-science-pack", 1 },
+        { "electric-power-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
       },
-      time = 60
+      time = 60,
     },
   },
-  })
-
-
+})

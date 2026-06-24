@@ -1,3 +1,4 @@
+local assembler_pictures = require("__base__.prototypes.entity.assembler-pictures")
 -- item
 local chemicalStager_item = util.table.deepcopy(data.raw["item"]["pumpjack"])
 chemicalStager_item.name = "chemical-stager"
@@ -76,35 +77,35 @@ chemicalStager.graphics_set = {
 chemicalStager.fluid_boxes = {
   {
     production_type = "output",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 1.5, -2.5 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.north, position = { -1.5, -2.5 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -1.5, 2.5 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 1.5, 2.5 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
 }
 
@@ -163,4 +164,4 @@ LSlib.technology.removeRecipeUnlock("rainbow-science-pack", "science-cauldron")
 -- remove cauldron completely
 data.raw.item["science-cauldron"] = nil
 data.raw.recipe["science-cauldron"] = nil
-data.raw["assembling-machine"]["science-cauldron"]=nil
+data.raw["assembling-machine"]["science-cauldron"] = nil

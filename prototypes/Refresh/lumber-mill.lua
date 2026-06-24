@@ -1,4 +1,5 @@
 ---@diagnostic disable: assign-type-mismatch
+local assembler_pictures = require("__base__.prototypes.entity.assembler-pictures")
 -- item
 local lumberMill_item = util.table.deepcopy(data.raw["item"]["pumpjack"])
 lumberMill_item.name = "lumber-mill"
@@ -6,17 +7,16 @@ lumberMill_item.icon = "__MoreScienceRefresh__/graphics/Refresh/lumber-mill/lumb
 lumberMill_item.icon_size = 64
 lumberMill_item.place_result = lumberMill_item.name
 lumberMill_item.stack_size = data.raw["item"]["assembling-machine-1"].stack_size
-lumberMill_item.order = "z-d[".. lumberMill_item.name .."]"
-
+lumberMill_item.order = "z-d[" .. lumberMill_item.name .. "]"
 
 -- move wood creation in its own category for the lumbermill
-data:extend{
+data:extend({
   {
     type = "recipe-category",
     name = "ms-lumber-mill",
   },
-}
-LSlib.recipe.setCraftingCategory("wood-creator","ms-lumber-mill")
+})
+LSlib.recipe.setCraftingCategory("wood-creator", "ms-lumber-mill")
 
 -- entity
 local lumberMill = util.table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"])
@@ -33,13 +33,13 @@ lumberMill.effect_receiver = {
   base_effect = {
     speed = 0.20,
     consumption = 0.30,
-    pollution = 0.50
-  }
+    pollution = 0.50,
+  },
 }
 
 lumberMill.crafting_categories = { "ms-lumber-mill" }
 lumberMill.collision_box = { { -3.8, -3.8 }, { 3.8, 3.8 } }
-lumberMill.selection_box = { { -4, -4 }, { 4, 4} }
+lumberMill.selection_box = { { -4, -4 }, { 4, 4 } }
 
 lumberMill.graphics_set = {
   animation = {
@@ -47,7 +47,7 @@ lumberMill.graphics_set = {
       {
         filename = "__MoreScienceRefresh__/graphics/Refresh/lumber-mill/lumber-mill-hr-shadow.png",
         priority = "high",
-        size = { 800,700 },
+        size = { 800, 700 },
         shift = { 0, 0 },
         scale = 0.5,
         line_length = 1,
@@ -104,15 +104,13 @@ lumberMill.graphics_set = {
       },
     },
   },
-
 }
-lumberMill.fluid_boxes_off_when_no_fluid_recipe=false
+lumberMill.fluid_boxes_off_when_no_fluid_recipe = false
 
-lumberMill.fluid_boxes =
-{
+lumberMill.fluid_boxes = {
   -- {
   --   production_type = "output",
-  --   pipe_picture = assembler2pipepictures(),
+  --   pipe_picture = assembler_pictures.assembler2pipepictures,
   --   pipe_covers = pipecoverspictures(),
   --   volume = 100,
   --   pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 2, -2 } } },
@@ -120,7 +118,7 @@ lumberMill.fluid_boxes =
   -- },
   -- {
   --   production_type = "input",
-  --   pipe_picture = assembler2pipepictures(),
+  --   pipe_picture = assembler_pictures.assembler2pipepictures,
   --   pipe_covers = pipecoverspictures(),
   --   volume = 100,
   --   pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -2, 2 } } },
@@ -128,7 +126,7 @@ lumberMill.fluid_boxes =
   -- },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 3, 3 } } },
@@ -136,13 +134,12 @@ lumberMill.fluid_boxes =
   },
 }
 
-
 local lumberMillRecipe = util.table.deepcopy(data.raw.recipe["wood-plantation"])
 lumberMillRecipe.name = "lumber-mill"
 lumberMillRecipe.enabled = false
 lumberMillRecipe.results = { { type = "item", name = "lumber-mill", amount = 1 } }
 lumberMillRecipe.subgroup = "msr-crafting"
 
-data:extend { lumberMill_item, lumberMill, lumberMillRecipe }
+data:extend({ lumberMill_item, lumberMill, lumberMillRecipe })
 
 LSlib.technology.addRecipeUnlock("wood-plantation", "lumber-mill")

@@ -1,3 +1,4 @@
+local assembler_pictures = require("__base__.prototypes.entity.assembler-pictures")
 -- item
 local purifier_item = util.table.deepcopy(data.raw["item"]["pumpjack"])
 purifier_item.name = "purifier"
@@ -97,7 +98,7 @@ purifier.graphics_set = {
 purifier.fluid_boxes = {
   {
     production_type = "output",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 1.5, -1.5 } } },
@@ -105,7 +106,7 @@ purifier.fluid_boxes = {
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = assembler_pictures.assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -1.5, 1.5 } } },
