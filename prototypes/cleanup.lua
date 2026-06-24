@@ -1,5 +1,5 @@
 -- cleanup tech tree
-local scienceNames    = require("__MoreScience__/prototypes/settings").scienceNames
+local scienceNames    = require("__MoreScienceRefresh__/prototypes/settings").scienceNames
 
 -- rocket cauldron
 
