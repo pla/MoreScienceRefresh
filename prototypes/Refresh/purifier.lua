@@ -16,7 +16,7 @@ data:extend({
   },
 })
 
-data.raw["recipe"]["purified-water"].category = "ms-water-treatment"
+data.raw["recipe"]["purified-water"].categories = { "ms-water-treatment" }
 
 -- entity
 local purifier = util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
@@ -101,7 +101,7 @@ purifier.fluid_boxes = {
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "output", direction = defines.direction.north, position = { 1.5, -1.5 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
   {
     production_type = "input",
@@ -109,7 +109,7 @@ purifier.fluid_boxes = {
     pipe_covers = pipecoverspictures(),
     volume = 100,
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -1.5, 1.5 } } },
-    secondary_draw_orders = { north = -1 }
+    secondary_draw_orders = { north = -1 },
   },
 }
 
