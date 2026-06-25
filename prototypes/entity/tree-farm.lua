@@ -25,9 +25,8 @@ animationLayer.height = 800 / (animationLayer.frame_count / animationLayer.line_
 animationLayer.shift = util.by_pixel(0, 2)
 animationLayer.scale = .95
 animationLayer.animation_speed = 0.25
+animationLayer.repeat_count = nil
 table.insert(seedExtractor.graphics_set.animation.layers, util.table.deepcopy(animationLayer))
-
-
 
 --------------------------------------------------------------------------------
 ----- wood-plantation                                                      -----
