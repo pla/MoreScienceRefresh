@@ -14,7 +14,7 @@ local greenhouse = data.raw["assembling-machine"]["wood-plantation"]
 greenhouse.icon = "__MoreScienceRefresh__/graphics/Refresh/greenhouse/greenhouse-icon.png"
 greenhouse.icons = nil
 greenhouse.next_upgrade = nil
-greenhouse.forced_symmetry = "horizontal"
+greenhouse.use_mirroring = true
 greenhouse.allowed_effects = { "consumption", "pollution" }
 
 -- consume pollution
@@ -124,8 +124,10 @@ LSlib.recipe.setSubgroup("wood-plantation", "msr-crafting")
 LSlib.recipe.setSubgroup("seed-extractor", "msr-crafting")
 
 local woodPlantation = data.raw["technology"]["wood-plantation"]
-woodPlantation.icons[1] = {
-  icon = "__MoreScienceRefresh__/graphics/Refresh/greenhouse/greenhouse-icon-big.png",
-  icon_size = 640,
-  scale = 0.4,
-}
+if woodPlantation.icons then
+  woodPlantation.icons[1] = {
+    icon = "__MoreScienceRefresh__/graphics/Refresh/greenhouse/greenhouse-icon-big.png",
+    icon_size = 640,
+    scale = 0.4,
+  }
+end

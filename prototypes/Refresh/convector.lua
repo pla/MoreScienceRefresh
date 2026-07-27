@@ -22,7 +22,7 @@ convector.icon = "__MoreScienceRefresh__/graphics/Refresh/convector/convector-ic
 convector.icons = nil
 convector.minable.result = convector.name
 convector.next_upgrade = nil
-convector.forced_symmetry = "horizontal"
+convector.use_mirroring = true
 
 convector.effect_receiver = {
   base_effect = {

@@ -9,7 +9,7 @@ local assembler = data.raw["assembling-machine"]["rocket-assembling-machine"]
 assembler.icon = "__MoreScienceRefresh__/graphics/Refresh/assembler/assembler-icon.png"
 assembler.icons = nil
 assembler.next_upgrade = nil
--- assembler.forced_symmetry = "horizontal"
+-- assembler.use_mirroring = true
 
 assembler.effect_receiver = {
   base_effect = {

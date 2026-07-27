@@ -27,7 +27,7 @@ purifier.icons = nil
 purifier.minable.result = purifier.name
 purifier.next_upgrade = nil
 purifier.module_slots = 3
-purifier.forced_symmetry = "horizontal"
+purifier.use_mirroring = true
 purifier.order = "e"
 
 purifier.effect_receiver = {

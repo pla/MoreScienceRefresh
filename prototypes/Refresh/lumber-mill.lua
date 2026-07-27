@@ -28,6 +28,7 @@ lumberMill.next_upgrade = nil
 lumberMill.fast_replaceable_group = ""
 lumberMill.module_slots = 4
 lumberMill.crafting_speed = 1
+lumberMill.use_mirroring = true
 
 lumberMill.effect_receiver = {
   base_effect = {

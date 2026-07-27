@@ -16,7 +16,7 @@ grinder.icon = "__MoreScienceRefresh__/graphics/Refresh/grinder/grinder-icon.png
 grinder.icons = nil
 grinder.minable.result = grinder.name
 grinder.next_upgrade = nil
-grinder.forced_symmetry = "horizontal"
+grinder.use_mirroring = true
 grinder.module_slots = 4
 grinder.crafting_speed = 2
 

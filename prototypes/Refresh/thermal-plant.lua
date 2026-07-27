@@ -16,7 +16,7 @@ thermalPlant.icon = "__MoreScienceRefresh__/graphics/Refresh/thermal-plant/therm
 thermalPlant.icons = nil
 thermalPlant.minable.result = thermalPlant.name
 thermalPlant.next_upgrade = nil
-thermalPlant.forced_symmetry = "horizontal"
+thermalPlant.use_mirroring = true
 
 thermalPlant.effect_receiver = {
   base_effect = {
