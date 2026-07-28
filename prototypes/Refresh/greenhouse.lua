@@ -1,7 +1,4 @@
 local assembler_pictures = require("__base__.prototypes.entity.assembler-pictures")
--- adjust animation speed for seed extractor
--- local seedExtractor = data.raw["assembling-machine"]["seed-extractor"]
--- seedExtractor.graphics_set.animation.layers[1].animation_speed = 0.25
 
 -- item
 local greenhouse_item = data.raw["item"]["wood-plantation"]
@@ -93,14 +90,6 @@ greenhouse.graphics_set = {
 }
 
 greenhouse.fluid_boxes = {
-  -- {
-  --   production_type = "output",
-  --   pipe_picture = assembler_pictures.assembler2pipepictures,
-  --   pipe_covers = pipecoverspictures(),
-  --   volume = 100,
-  --   pipe_connections = { { flow_direction = "output", direction = defines.direction.north , position = { 2, -2 } } },
-  --   secondary_draw_orders = { north = -1 }
-  -- },
   {
     production_type = "input",
     pipe_picture = assembler_pictures.assembler2pipepictures,
@@ -109,14 +98,6 @@ greenhouse.fluid_boxes = {
     pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { -2, 2 } } },
     secondary_draw_orders = { north = -1 },
   },
-  -- {
-  --   production_type = "input",
-  --   pipe_picture = assembler_pictures.assembler2pipepictures,
-  --   pipe_covers = pipecoverspictures(),
-  --   volume = 100,
-  --   pipe_connections = { { flow_direction = "input", direction = defines.direction.south, position = { 2, 2 } } },
-  --   secondary_draw_orders = { north = -1 }
-  -- },
 }
 
 LSlib.recipe.addIngredient("organic-tree", "water", 10, "fluid")

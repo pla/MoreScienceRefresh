@@ -14,6 +14,7 @@ local arcFurnace = util.table.deepcopy(data.raw["furnace"]["electric-furnace"])
 arcFurnace.name = "arc-furnace"
 arcFurnace.icon = "__MoreScienceRefresh__/graphics/Refresh/arc-furnace/arc-furnace-icon.png"
 arcFurnace.icons = nil
+assert(arcFurnace.minable)
 arcFurnace.minable.result = arcFurnace.name
 arcFurnace.next_upgrade = nil
 

@@ -23,6 +23,7 @@ local lumberMill = util.table.deepcopy(data.raw["assembling-machine"]["assemblin
 lumberMill.name = "lumber-mill"
 lumberMill.icon = "__MoreScienceRefresh__/graphics/Refresh/lumber-mill/lumber-mill-icon.png"
 lumberMill.icons = nil
+assert(lumberMill.minable)
 lumberMill.minable.result = lumberMill.name
 lumberMill.next_upgrade = nil
 lumberMill.fast_replaceable_group = ""

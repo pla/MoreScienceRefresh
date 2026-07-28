@@ -40,7 +40,7 @@ for _,scienceFluid in pairs({
       if data.raw["recipe"][barreling.."-"..barrelName] then
         LSlib.recipe.setSubgroup     (barreling.."-"..barrelName, data.raw["item"][barrelName].subgroup.."-"..barreling)
         LSlib.recipe.setOrderstring  (barreling.."-"..barrelName, data.raw["fluid"][scienceFluid].order)
-        LSlib.recipe.setLocalisedName(barreling.."-"..barrelName, {"recipe-name."..barreling..(barreling=="empty" and "-filled" or "").."-barrel", data.raw["fluid"][scienceFluid].localised_name[2]})
+        LSlib.recipe.setLocalisedName(barreling.."-"..barrelName, {"recipe-name."..barreling..(barreling=="empty" and "-filled" or "").."-barrel", data.raw["fluid"][scienceFluid].localised_name[2]})  ---@diagnostic disable-line: need-check-nil
       end
     end
   end

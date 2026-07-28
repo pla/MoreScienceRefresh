@@ -1,12 +1,9 @@
-
 --------------------------------------------------------------------------------
 ----- Assembling machine 0 (hand crafting)                      -----
 --------------------------------------------------------------------------------
 
 table.insert(data.raw["character"     ]["character"].crafting_categories, "ms-manual-crafting")
 table.insert(data.raw["god-controller"]["default"  ].crafting_categories, "ms-manual-crafting")
-
-
 
 --------------------------------------------------------------------------------
 ----- Assembling machine 1,2,3                                             -----
@@ -67,11 +64,13 @@ rocketAssembling.fast_replaceable_group = nil
 rocketAssembling.next_upgrade = nil
 
 rocketAssembling.max_health = 450
+assert(rocketAssembling.minable)
 rocketAssembling.minable.result = rocketAssembling.name
 
 rocketAssembling.fluid_boxes = nil
 
 rocketAssembling.graphics_set = util.table.deepcopy(data.raw["assembling-machine"]["assembling-machine-3"].graphics_set)
+---@diagnostic disable-next-line: need-check-nil
 rocketAssembling.graphics_set.animation.layers[1].filename = "__MoreScienceRefresh__/graphics/entity/assembling-machine-4/hr-assembling-machine-4.png"
 rocketAssembling.graphics_set.animation.layers[2].filename = "__MoreScienceRefresh__/graphics/entity/assembling-machine-4/hr-assembling-machine-4-shadow.png"
 
@@ -84,109 +83,109 @@ data:extend{rocketAssembling}
 --------------------------------------------------------------------------------
 if settings.startup["MS-rocket-launching-extended"].value == true then
 
-  local scienceCauldron = util.table.deepcopy(assemblingMachine1)
-  scienceCauldron.name = "science-cauldron"
-  scienceCauldron.localised_name = nil
+  -- local scienceCauldron = util.table.deepcopy(assemblingMachine1)
+  -- scienceCauldron.name = "science-cauldron"
+  -- scienceCauldron.localised_name = nil
 
-  scienceCauldron.icon      = data.raw["item"][scienceCauldron.name].icon
-  scienceCauldron.icon_size = data.raw["item"][scienceCauldron.name].icon_size
-  scienceCauldron.icons     = util.table.deepcopy(data.raw["item"][scienceCauldron.name].icons)
+  -- scienceCauldron.icon      = data.raw["item"][scienceCauldron.name].icon
+  -- scienceCauldron.icon_size = data.raw["item"][scienceCauldron.name].icon_size
+  -- scienceCauldron.icons     = util.table.deepcopy(data.raw["item"][scienceCauldron.name].icons)
 
-  scienceCauldron.crafting_categories = {require("prototypes/settings").rocketCauldron.category}
-  scienceCauldron.crafting_speed = 0.075
-  scienceCauldron.energy_usage = rocketAssembling.energy_usage
+  -- scienceCauldron.crafting_categories = {require("prototypes/settings").rocketCauldron.category}
+  -- scienceCauldron.crafting_speed = 0.075
+  -- scienceCauldron.energy_usage = rocketAssembling.energy_usage
 
-  scienceCauldron.max_health = rocketAssembling.max_health
-  scienceCauldron.minable.result = scienceCauldron.name
+  -- scienceCauldron.max_health = rocketAssembling.max_health
+  -- scienceCauldron.minable.result = scienceCauldron.name
 
-  scienceCauldron.module_specification = { module_slots = 2 }
-  scienceCauldron.allowed_effects = {"consumption", "speed", "pollution" }
+  -- scienceCauldron. module_slots = 2
+  -- scienceCauldron.allowed_effects = {"consumption", "speed", "pollution" }
 
-  scienceCauldron.animation = {
-    filename = "__MoreScienceRefresh__/graphics/entity/cauldron/cauldron.png",
-    width  = 800 / 5,
-    height = 800 / 5,
-    frame_count = 5 * 5,
-    line_length = 5,
-    animation_speed = 5,
-  }
+  -- scienceCauldron.animation = {
+  --   filename = "__MoreScienceRefresh__/graphics/entity/cauldron/cauldron.png",
+  --   width  = 800 / 5,
+  --   height = 800 / 5,
+  --   frame_count = 5 * 5,
+  --   line_length = 5,
+  --   animation_speed = 5,
+  -- }
 
-  local function createCauldronPipePictures()
-    return {
-      north =
-      {
-        filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-north.png",
-        priority = "extra-high",
-        width = 160,
-        height = 160,
-        shift = {-1, 2},
-      },
-      east =
-      {
-        --filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-east.png",
-        filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-east-alternative.png",
-        priority = "extra-high",
-        width = 160,
-        height = 160,
-        shift = {-2, -1},
-      },
-      south =
-      {
-        filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-south.png",
-        priority = "extra-high",
-        width = 160,
-        height = 160,
-        shift = {1, -2},
-      },
-      west =
-      {
-        filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-west.png",
-        priority = "extra-high",
-        width = 160,
-        height = 160,
-        shift = {2, 1},
-      },
-    }
-  end
-  scienceCauldron.fluid_boxes = {
-    { -- north
-      production_type = "input",
-      pipe_picture = createCauldronPipePictures(),
-      pipe_covers = pipecoverspictures(),
-      base_area = 0.1, -- will hold 10 units
-      volume = 10,
-      base_level = -1,
-      pipe_connections = {{ flow_direction="input", direction = defines.direction.north --[[@as int]], position = {0, -1} }}
-    },
-    { -- east
-      production_type = "input",
-      pipe_picture = createCauldronPipePictures(),
-      pipe_covers = pipecoverspictures(),
-      base_area = 0.1, -- will hold 10 units
-      base_level = -1,
-      volume = 10,
-      pipe_connections = {{ flow_direction="input", direction = defines.direction.east --[[@as int]], position = {1, 0} }}
-    },
-    { -- west
-      production_type = "input",
-      pipe_picture = createCauldronPipePictures(),
-      pipe_covers = pipecoverspictures(),
-      base_area = 0.1, -- will hold 10 units
-      volume = 10,
-      base_level = -1,
-      pipe_connections = {{ flow_direction="input", direction = defines.direction.west --[[@as int]], position = {-1, 0} }}
-    },
-    { -- south
-      production_type = "output",
-      pipe_picture = createCauldronPipePictures(),
-      pipe_covers = pipecoverspictures(),
-      base_area = 0.1, -- will hold 10 units
-      volume = 10,
-      base_level = 1,
-      pipe_connections = {{ flow_direction="output", direction = defines.direction.south --[[@as int]], position = {0, 1} }}
-    },
-    --off_when_no_fluid_recipe = true
-  }
+  -- local function createCauldronPipePictures()
+  --   return {
+  --     north =
+  --     {
+  --       filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-north.png",
+  --       priority = "extra-high",
+  --       width = 160,
+  --       height = 160,
+  --       shift = {-1, 2},
+  --     },
+  --     east =
+  --     {
+  --       --filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-east.png",
+  --       filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-east-alternative.png",
+  --       priority = "extra-high",
+  --       width = 160,
+  --       height = 160,
+  --       shift = {-2, -1},
+  --     },
+  --     south =
+  --     {
+  --       filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-south.png",
+  --       priority = "extra-high",
+  --       width = 160,
+  --       height = 160,
+  --       shift = {1, -2},
+  --     },
+  --     west =
+  --     {
+  --       filename = "__MoreScienceRefresh__/graphics/entity/cauldron/pipe-west.png",
+  --       priority = "extra-high",
+  --       width = 160,
+  --       height = 160,
+  --       shift = {2, 1},
+  --     },
+  --   }
+  -- end
+  -- scienceCauldron.fluid_boxes = {
+  --   { -- north
+  --     production_type = "input",
+  --     pipe_picture = createCauldronPipePictures(),
+  --     pipe_covers = pipecoverspictures(),
+  --     base_area = 0.1, -- will hold 10 units
+  --     volume = 10,
+  --     base_level = -1,
+  --     pipe_connections = {{ flow_direction="input", direction = defines.direction.north --[[@as int]], position = {0, -1} }}
+  --   },
+  --   { -- east
+  --     production_type = "input",
+  --     pipe_picture = createCauldronPipePictures(),
+  --     pipe_covers = pipecoverspictures(),
+  --     base_area = 0.1, -- will hold 10 units
+  --     base_level = -1,
+  --     volume = 10,
+  --     pipe_connections = {{ flow_direction="input", direction = defines.direction.east --[[@as int]], position = {1, 0} }}
+  --   },
+  --   { -- west
+  --     production_type = "input",
+  --     pipe_picture = createCauldronPipePictures(),
+  --     pipe_covers = pipecoverspictures(),
+  --     base_area = 0.1, -- will hold 10 units
+  --     volume = 10,
+  --     base_level = -1,
+  --     pipe_connections = {{ flow_direction="input", direction = defines.direction.west --[[@as int]], position = {-1, 0} }}
+  --   },
+  --   { -- south
+  --     production_type = "output",
+  --     pipe_picture = createCauldronPipePictures(),
+  --     pipe_covers = pipecoverspictures(),
+  --     base_area = 0.1, -- will hold 10 units
+  --     volume = 10,
+  --     base_level = 1,
+  --     pipe_connections = {{ flow_direction="output", direction = defines.direction.south --[[@as int]], position = {0, 1} }}
+  --   },
+  --   --off_when_no_fluid_recipe = true
+  -- }
 
-  data:extend{scienceCauldron}
+  -- data:extend{scienceCauldron}
 end

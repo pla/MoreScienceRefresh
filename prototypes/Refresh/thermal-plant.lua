@@ -14,7 +14,9 @@ local thermalPlant = util.table.deepcopy(data.raw["assembling-machine"]["chemica
 thermalPlant.name = "thermal-plant"
 thermalPlant.icon = "__MoreScienceRefresh__/graphics/Refresh/thermal-plant/thermal-plant-icon.png"
 thermalPlant.icons = nil
-thermalPlant.minable.result = thermalPlant.name
+if thermalPlant.minable then
+  thermalPlant.minable.result = thermalPlant.name
+end
 thermalPlant.next_upgrade = nil
 thermalPlant.use_mirroring = true
 
@@ -30,9 +32,11 @@ thermalPlant.crafting_categories = { "ms-chemical-crafting" }
 thermalPlant.collision_box = { { -2.3, -2.3 }, { 2.3, 2.3 } }
 thermalPlant.selection_box = { { -2.5, -2.5 }, { 2.5, 2.5 } }
 
+assert(data.raw["assembling-machine"]["chemical-plant"].graphics_set)
 ---@type data.WorkingVisualisations for smoke
 local chemWorkVis =
   util.table.deepcopy(data.raw["assembling-machine"]["chemical-plant"].graphics_set.working_visualisations)
+
 thermalPlant.graphics_set = {
   animation = {
     layers = {
@@ -95,11 +99,13 @@ thermalPlant.graphics_set = {
         },
       },
     },
-    chemWorkVis[3],
-    chemWorkVis[4],
+    chemWorkVis[3], ---@diagnostic disable-line:undefined-field
+    chemWorkVis[4], ---@diagnostic disable-line:undefined-field
   },
 }
-
+assert(thermalPlant.graphics_set.working_visualisations)
+assert(thermalPlant.graphics_set.working_visualisations[2])
+assert(thermalPlant.graphics_set.working_visualisations[3])
 thermalPlant.graphics_set.working_visualisations[2].north_position = { 1.22, -3.5 }
 thermalPlant.graphics_set.working_visualisations[2].east_position = { 1.22, -3.5 }
 thermalPlant.graphics_set.working_visualisations[2].south_position = { 1.22, -3.5 }

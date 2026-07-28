@@ -14,6 +14,7 @@ local grinder = util.table.deepcopy(data.raw["assembling-machine"]["chemical-pla
 grinder.name = "grinder"
 grinder.icon = "__MoreScienceRefresh__/graphics/Refresh/grinder/grinder-icon.png"
 grinder.icons = nil
+assert(grinder.minable)
 grinder.minable.result = grinder.name
 grinder.next_upgrade = nil
 grinder.use_mirroring = true

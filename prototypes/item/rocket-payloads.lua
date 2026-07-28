@@ -1,6 +1,5 @@
 local scienceNames = require("prototypes/settings").scienceNames
 local rocketParts = require("prototypes/settings").rocketParts
-local payloads = require("prototypes/settings").rocketPayloads
 local rocket = require("prototypes/settings").rocket
 local rocketCauldron = require("prototypes/settings").rocketCauldron
 

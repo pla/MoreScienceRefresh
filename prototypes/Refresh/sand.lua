@@ -25,14 +25,6 @@ if mods["advanced-chemical-plant"] then
 
   -- crafting speed 8 is way too much
   data.raw["assembling-machine"]["kr-advanced-chemical-plant"].crafting_speed = 2
-  ---@diagnostic disable-next-line: undefined-field
+  ---@diagnostic disable-next-line: need-check-nil
   data.raw["assembling-machine"]["kr-advanced-chemical-plant"].working_sound.sound.volume = 0.25
-  -- else
-  --   for _, assemblingName in pairs {
-  --     "assembling-machine-1",
-  --     "assembling-machine-2",
-  --     "assembling-machine-3",
-  --   } do
-  --     LSlib.entity.addCraftingCategory("assembling-machine", assemblingName, "ms-sand-crafting")
-  --   end
 end

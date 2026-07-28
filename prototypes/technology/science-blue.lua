@@ -37,8 +37,6 @@ for techName,techLevels in pairs{
   ["fluid-wagon"                      ] = {},
   ["roboports"                        ] = {},
   ["logistic-robotics"                ] = {},
-  ["character-logistic-slots-%i"      ] = {1, 2},
-  ["character-logistic-trash-slots-%i"] = {1},
 } do
   if LSlib.utils.table.isEmpty(techLevels) then
     LSlib.technology.addIngredient(techName, 1, string.format(blueScienceName, "pack"))

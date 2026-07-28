@@ -50,8 +50,10 @@ labMK1.fast_replaceable_group = labMK1.name
 local labMK0 = util.table.deepcopy(labMK1)
 labMK0.next_upgrade = labMK0.name
 labMK0.name = "lab-mk0"
+assert(labMK0.localised_name)
 labMK0.localised_name[1] = "item-tier-name.mk0"
 
+assert(labMK0.minable)
 labMK0.minable.result = labMK0.name
 labMK0.energy_usage = "250kW"
 labMK0.energy_source =
@@ -88,10 +90,14 @@ data:extend{labMK0}
 --------------------------------------------------------------------------------
 local labMK2 = util.table.deepcopy(labMK1)
 labMK2.name = "lab-mk2"
+assert(labMK2.localised_name)
 labMK2.localised_name[1] = "item-tier-name.mk2"
 labMK1.next_upgrade = labMK2.name
+assert(labMK2.minable)
 labMK2.minable.result = labMK2.name
+assert(labMK2.module_slots)
 labMK2.module_slots = 2 * labMK2.module_slots
+assert(labMK2.researching_speed)
 labMK2.researching_speed = .5 * labMK2.researching_speed
 labMK2.energy_usage = "500kW"
 

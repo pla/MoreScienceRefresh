@@ -8,9 +8,9 @@ end
 
 local function getFluidOrder(scienceName)
   return LSlib.utils.string.split(
-    LSlib.utils.string.split(data.raw["fluid"][string.format(scienceName, "fluid")].order, "-")[3],
+    LSlib.utils.string.split(data.raw["fluid"][string.format(scienceName, "fluid")].order, "-")[3],  ---@diagnostic disable-line: undefined-field
     "["
-  )[1]
+  )[1]  ---@diagnostic disable-line: undefined-field
 end
 
 local function addInfusedSciencePack(scienceName, scienceNumber)

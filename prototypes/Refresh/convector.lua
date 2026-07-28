@@ -20,6 +20,7 @@ local convector = util.table.deepcopy(data.raw["assembling-machine"]["chemical-p
 convector.name = "convector"
 convector.icon = "__MoreScienceRefresh__/graphics/Refresh/convector/convector-icon.png"
 convector.icons = nil
+assert(convector.minable)
 convector.minable.result = convector.name
 convector.next_upgrade = nil
 convector.use_mirroring = true

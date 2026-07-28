@@ -24,6 +24,7 @@ local purifier = util.table.deepcopy(data.raw["assembling-machine"]["chemical-pl
 purifier.name = "purifier"
 purifier.icon = "__MoreScienceRefresh__/graphics/Refresh/purifier/purifier-icon.png"
 purifier.icons = nil
+assert(purifier.minable)
 purifier.minable.result = purifier.name
 purifier.next_upgrade = nil
 purifier.module_slots = 3
