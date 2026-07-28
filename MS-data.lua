@@ -1,6 +1,6 @@
 
-require("src/debug")
-if Debug.enabled then
+
+if debugadapter then
   LSlib.utils.log.enable() -- enable logging to factorio-current.log
 end
 
