@@ -15,7 +15,7 @@ for scienceName, _ in pairs(previousFluid) do
   -- STEP 1: create basic recipe -----------------------------------------------
   LSlib.recipe.create(fluidName)
   LSlib.recipe.disable(fluidName)
-  LSlib.recipe.setEnergyRequired(fluidName, LSlib.recipe.getEnergyRequired(packName) * recipeMultiplier)
+  LSlib.recipe.setEnergyRequired(fluidName, LSlib.recipe.getEnergyRequired(packName)--[[@cast -?]] * recipeMultiplier)
   LSlib.recipe.setCraftingCategory(fluidName, "ms-chemical-crafting")
   LSlib.recipe.addResult(fluidName, fluidName, fluidsPerPack * recipeMultiplier * recipeResultMultiplier, "fluid")
   LSlib.recipe.setTints(
@@ -44,13 +44,13 @@ for scienceName, _ in pairs(previousFluid) do
 
   -- STEP 2b: extract the extra ingredients out of the pack --------------------
   ingredients = {}
-  for _, ingredient in pairs(data.raw["recipe"][packName].ingredients) do
-    local ingredientName = ingredient["name"] or ingredient[1]
+  for _, ingredient in pairs(data.raw["recipe"][packName].ingredients--[[@cast -?]]) do
+    local ingredientName = ingredient["name"]
     if not (ingredientName == "empty-bottle" or ingredientName == "ms-science-fluid") then
       table.insert(ingredients, {
         type = ingredient["type"] or "item",
         name = ingredientName,
-        amount = ingredient["amount"] or ingredient[2],
+        amount = ingredient["amount"],
       })
     end
   end
