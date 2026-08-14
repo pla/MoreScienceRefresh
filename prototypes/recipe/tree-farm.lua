@@ -94,7 +94,7 @@ local treeSeedCreator = {
   subgroup = data.raw["item"][treeSeed.name].subgroup,
   energy_required = treeSeed.energy_required / 2,
   enabled = treeSeed.enabled,
-  category = treeSeed.category,
+  categories = {"ms-seed-extractor"},
   ingredients = {
     { type = "item", name = "wood", amount = 100 },
     { type = "item", name = "sand", amount = 10 },
